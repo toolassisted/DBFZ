@@ -129,15 +129,20 @@ window.twttr = (function(d, s, id) {
 					var vlinkid = v.DATA.LINK.split("/status/")[1];
 					twttr.widgets.createTweet(vlinkid, TAGDIV.node(), {})
 					.then(function(embed){
+						if (embed == null) return;
 						var link = d3.select(embed.contentDocument.body).select(".Tweet-body .link").node();
 						var linkurl = link.getAttribute("data-expanded-url");
 						var linkid = linkurl.split("/status/")[1];
 						TAGDIV.selectAll("*").style("display","none");
 						twttr.widgets.createTweet(linkid, TAGDIV.node(), {})
 						.then(function(embed){
+							if (embed == null) return;
 							var link = d3.select(embed.contentDocument.body).select(".Tweet-body .link").node();
+							if (link == null) return;
 							var linkurl = link.getAttribute("data-expanded-url");
+							if (linkurl == null) return;
 							var linkid = linkurl.split("/status/")[1];
+							if (linkid == null) return;
 							twttr.widgets.createTweet(linkid, TAGDIV.node(), {});
 						});
 					});
