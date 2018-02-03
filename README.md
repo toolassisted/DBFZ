@@ -1,2 +1,2 @@
 # DBFZ
-DRAGON BALL FIGTHERZ
+LOL U C https://toolassisted.github.io/DBFZ
